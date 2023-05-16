@@ -75,7 +75,7 @@ class Sized(Descriptor):
 
     def __set__(self, instance, value):
         if len(value) > self.maxlen:
-            raise ValueError(f"'{value}' Should be maximum {self.maxlen} elements long")
+            raise ValueError(f"'{value}' must be maximum {self.maxlen} elements long")
 
         super().__set__(instance, value)
 
@@ -86,6 +86,6 @@ class Regex(Descriptor):
 
     def __set__(self, instance, value):
         if not self.pattern.match(value):
-            raise ValueError(f"'{value}' should match pattern '{self.pattern.pattern}'")
+            raise ValueError(f"'{value}' must match pattern '{self.pattern.pattern}'")
 
         super().__set__(instance, value)

@@ -49,4 +49,5 @@ class Structure(object, metaclass=StructureMeta):
         values = list(self.__dict__.values())
 
         params = [f"{k}:{t}={v}" for k, t, v in zip(names, types, values)]
+        
         return f"{type(self).__name__}({', '.join(params)})"
